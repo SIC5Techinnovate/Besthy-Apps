@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Users {
+  id           String         @id @default(cuid())
+  name         String
+  email        String         @unique
+  password     String
+  psikotes     Boolean        @default(false)
+  profile      Profile?
+  messages     Message[]
+  DetakJantung DetakJantung[]
+}
+
+model Profile {
+  id           String        @id @default(cuid())
+  telp         String?
+  jenisKelamin JenisKelamin?
+  birthdate    String?
+  jenisKhodam  String?
+  kepribadian  String?       @default("-")
+  user         Users         @relation(fields: [userId], references: [id])
+  userId       String        @unique
+}
+
+enum JenisKelamin {
+  LAKI_LAKI
+  PEREMPUAN
+}
+
+model Message {
+  id     String   @id @default(cuid())
+  text   String
+  date   DateTime @default(now())
+  user   Users    @relation(fields: [userId], references: [id])
+  userId String
+}
+
+model DetakJantung {
+  id        String    @id @default(cuid())
+  detak     Int
+  createdAt DateTime? @default(now())
+  user      Users     @relation(fields: [userId], references: [id])
+  userId    String
+}

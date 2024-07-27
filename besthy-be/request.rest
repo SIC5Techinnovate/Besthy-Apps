@@ -1,0 +1,81 @@
+### GET ALL USER
+GET http://localhost:3002/users
+
+### GET USER BY ID
+GET http://localhost:3002/users/clyxy4h4w0001llyq70qo26bu
+
+### CREATE USER
+POST http://localhost:3002/users
+Content-Type: application/json
+
+{
+    "name": "test1",
+    "email": "10",
+    "password": "10",
+    "confPassword": "10"
+}
+
+### UPDATE USER
+PATCH  http://localhost:3002/users/clytvyhk70000gz8q316i17th
+Content-Type: application/json
+
+{
+    "name": "test1up",
+    "email": "test1@g.com",
+    "password": "test1",
+    "confPassword": "test1"
+}
+
+### DELETE USER
+DELETE http://localhost:3002/users/1
+
+### LOGIN
+POST https://besthy-be.vercel.app/auth/login
+Content-Type: application/json
+
+{
+    "email": "10",
+    "password": "10"
+}
+
+### ME
+GET http://localhost:3002/auth/me/clyx1or800000t16o0asl74ri
+
+### LOGOUT
+DELETE  http://localhost:3002/auth/logout
+    
+### UPDATE PROFILE
+PATCH  http://localhost:3002/users/profile/clytux2it0000b0ayvi59xof2
+Content-Type: application/json
+
+{
+    "telp": "081234567890",
+    "jenisKelamin": "LAKI_LAKI",
+    "birthdate": "2000-01-01",
+    "jenisKhodam": "JOHN",
+    "kepribadian": "SINGUIS"
+}
+
+### Get Message
+GET http://localhost:3002/message
+
+### Create Message
+POST http://localhost:3002/message/clyxy4h4w0001llyq70qo26bu
+Content-Type: application/json
+
+{
+    "text": "test from aloha"
+}
+
+### GET Detak
+GET http://localhost:3002/detak/clz195fts0000prvu1vk73scx
+
+### CREATE Detak
+POST http://localhost:3002/detak
+Content-Type: application/json
+
+{
+  "detak": 100,
+  "userId": "clz195fts0000prvu1vk73scx"
+}
+

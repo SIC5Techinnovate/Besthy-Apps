@@ -1,0 +1,243 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 224 71.4% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+    --primary: 262.1 83.3% 57.8%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 262.1 83.3% 57.8%;
+    --radius: 0.3rem;
+    --chart-1: ;
+    --chart-2: ;
+    --chart-3: ;
+    --chart-4: ;
+    --chart-5: ;
+  }
+
+  .dark {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 263.4 70% 50.4%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 263.4 70% 50.4%;
+    --chart-1: ;
+    --chart-2: ;
+    --chart-3: ;
+    --chart-4: ;
+    --chart-5: ;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-inter h-screen overflow-y-hidden;
+    background: linear-gradient(
+      0deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(199, 56, 189, 1) 100%
+    );
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+  }
+}
+
+.full-page-chat-red div div div {
+  color: red;
+}
+
+.dino {
+  width: 50px;
+  height: 50px;
+  background: gray; /* Ganti dengan gambar dino jika ada */
+  position: absolute;
+  bottom: 0;
+  left: 50px;
+  transition: transform 0.3s ease;
+}
+
+.dino.jump {
+  animation: jump 1s ease forwards; /* Durasi animasi lompatan */
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-150px); /* Ketinggian lompatan */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.cactus {
+  width: 30px;
+  height: 50px;
+  background: green; /* Ganti dengan gambar kaktus jika ada */
+  position: absolute;
+  bottom: 0;
+}
+
+.game {
+  position: relative;
+  width: 100vw;
+  height: 90vh;
+  overflow: hidden;
+}
+
+.start-screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  color: white;
+}
+
+.score {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 20px;
+  color: white;
+}
+
+.chat-container {
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  height: 63vh; /* Atur sesuai dengan kebutuhan */
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-messages {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+  position: relative;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: #b4b2b2;
+  border-radius: 10px;
+  height: 10px;
+  position: relative;
+}
+
+input[type="range"]::before {
+  content: "";
+  height: 10px;
+  background-color: #7c3aed;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  z-index: 1;
+  width: 0%; /* Will be set by JavaScript */
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -7px; /* Centers thumb on the track */
+  background-color: #7c3aed;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+  z-index: 2;
+  position: relative;
+}
+
+/* For Firefox */
+input[type="range"]::-moz-range-track {
+  background: #b4b2b2;
+  border-radius: 10px;
+  height: 10px;
+  position: relative;
+}
+
+input[type="range"]::-moz-range-thumb {
+  background-color: #7c3aed;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+}
+
+/* For IE */
+input[type="range"]::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+  width: 100%;
+  height: 10px;
+}
+
+input[type="range"]::-ms-fill-lower {
+  background: #7c3aed;
+  border-radius: 10px;
+}
+
+input[type="range"]::-ms-fill-upper {
+  background: #b4b2b2;
+  border-radius: 10px;
+}
+
+input[type="range"]::-ms-thumb {
+  background-color: #7c3aed;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+  margin-top: 0;
+  position: relative;
+  z-index: 2;
+}
+
+input[type="range"]::before {
+  width: var(--slider-progress, 0%);
+}
